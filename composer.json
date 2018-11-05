@@ -1,0 +1,20 @@
+{
+    "name": "rafaeltovar/aws-s3-utils",
+    "description": "Some libraries for use AWS S3",
+    "keywords": ["s3", "aws", "storage", "client", "database", "nosql"],
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Rafael Tovar",
+            "email": "hola@rafaeltovar.info"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AwsS3Utils\\": "src"
+        }
+    },
+}
