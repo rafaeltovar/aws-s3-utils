@@ -7,7 +7,7 @@ use Aws\Result,
     Aws\S3\Exception\S3MultipartUploadException,
     Aws\S3\S3Client;
 
-class AwsS3Adapter
+class Adapter
 {
     protected $client;
     protected $bucket;
@@ -35,5 +35,14 @@ class AwsS3Adapter
     public function applyPrefix($path): string
     {
         return ltrim(sprintf("%s%s", $this->prefix, $path), "/");
+    }
+
+    public function getOptions(array $options = []): array
+    {
+        return array_merge(
+                $this->options,
+                ['Bucket' => $this->getBucket()],
+                $options
+            );
     }
 }
