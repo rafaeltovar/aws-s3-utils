@@ -22,7 +22,7 @@ class AwsS3NoSQL
         return $this->adapter;
     }
 
-    public function set(string $key, string $content, array $options = []): int
+    public function set(string $key, string $content, array $options = [])
     {
         $default = [
             'ACL' => 'private',
@@ -35,7 +35,7 @@ class AwsS3NoSQL
         $options = $this->getAdapter()
                         ->getOptions(array_merge($default, $options));
 
-        $this->getAdapter()->getClient()->putObject($options);
+        return $this->getAdapter()->getClient()->putObject($options);
     }
 
     public function get(string $key) : string
